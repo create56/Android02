@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ExampleTask">
-        <activity android:name=".MainActivity" android:launchMode="standard">
+        <activity android:name=".ExampleFragment"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="standard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
