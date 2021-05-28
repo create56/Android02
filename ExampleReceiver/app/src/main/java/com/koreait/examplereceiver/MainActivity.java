@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity implements  AutoPermissionListener {
+import com.pedro.library.AutoPermissions;
+import com.pedro.library.AutoPermissionsListener;
+
+public class MainActivity extends AppCompatActivity implements AutoPermissionsListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements  AutoPermissionLi
 
     public void onRequestPermissionsResult(int requestCode, String permissions[],int[] grantResults) {
         super.onRequestPermissionsResult(requestCode,permissions,grantResults);
-        AutoPermissions.Companion.loadAllPermissions(this,requestCode,permissions,this);
+        AutoPermissions.Companion.parsePermissions(this,requestCode,permissions,this);
     }
 
     public void onDenied(int requestCode, String[] permission) {
