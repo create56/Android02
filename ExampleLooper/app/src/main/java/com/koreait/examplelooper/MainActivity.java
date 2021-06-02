@@ -49,12 +49,13 @@ public class MainActivity extends AppCompatActivity {
             Looper.prepare();
             Looper.loop();
         }
-
+        // obj로 받은 메세지를 쓰레드로
         class ProcessHandler extends Handler {
             public void handleMessage(Message msg) {
                 final String output = msg.obj + "from thread.";
 
-                handler.post(new Runnable() {
+                // output에 저장된 메세지 출력력
+               handler.post(new Runnable() {
                     @Override
                     public void run() {
                         tv.setText(output);
