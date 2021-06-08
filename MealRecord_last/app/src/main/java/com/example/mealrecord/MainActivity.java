@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         myPageButton = findViewById(R.id.myPageButton);
         // 신체 기록 추가 버튼
         bodySizeButton = findViewById(R.id.bodySizeButton);
+        // 마이페이지 버튼
+        myPageButton = findViewById(R.id.myPageButton);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false);
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         // 예시로 데이터 넣었어요!
         adapter.addItem(new DailyRecord("아침", "시리얼"));
         adapter.addItem(new DailyRecord("점심", "갈비탕"));
-        adapter.addItem(new DailyRecord("저녁","찜닭"));
+        adapter.addItem(new DailyRecord("저녁", "찜닭"));
 
         recyclerView.setAdapter(adapter);
 
@@ -64,5 +66,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        myPageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MyPage.class);
+                startActivity(intent);
+            }
+        });
     }
 }
+

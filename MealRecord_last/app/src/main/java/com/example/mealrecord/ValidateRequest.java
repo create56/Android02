@@ -13,7 +13,7 @@ public class ValidateRequest extends StringRequest {
     final static private String URL ="";
     private Map<String,String> map;
 
-    public ValidateRequest(String userID, Response.Listener<String>Response.Listener) {
+    public ValidateRequest(String userID, Response.Listener<String>listener) {
         super(Method.POST,URL, listener,null);
 
         map = new HashMap<>();

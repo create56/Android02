@@ -28,8 +28,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        Button btn2 = findViewById(R.id.button);
+        Button btn2 = findViewById(R.id.button2);
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button btn3 = findViewById(R.id.button);
+        Button btn3 = findViewById(R.id.button3);
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,17 +44,74 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button btn4 = findViewById(R.id.button);
+        Button btn4 = findViewById(R.id.button4);
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                deletePerson();
             }
         });
     } // end Create
 
+    public void deletePerson() {
+        String uriString = "content://com.koreait.provider/person";
+        Uri uri = new Uri.Builder().build().parse(uriString);
+
+        String selection = "name =?";
+        String[] selectionArgs = new String[] {"john"};
+
+        int  count = getContentResolver().delete(uri,selection,selectionArgs);
+        println("delete 결과 : " + count);
+    }
+
+    public void updatePerson() {
+        String uriString = "content://com.koreait.provider/person";
+        Uri uri = new Uri.Builder().build().parse(uriString);
+
+        // update할 조건
+        String selection = "mobile = ?";
+        String[] selectionArgs = new String[] {"010-1000-1000"};
+
+        ContentValues updateValue = new ContentValues();
+        updateValue.put("mobile","010-2000-2000");
+
+        int count = getContentResolver().update(uri,updateValue,selection,selectionArgs);
+        println("update 결과 :" + count);
+
+    }
+
     public void queryPerson() {
-        
+        try {
+            String urlString = "content://com.koreait.provider/person";
+            Uri uri = new Uri.Builder().build().parse(urlString);
+
+            String[] column = new String[] {"name","age","mobile"};
+
+            // ASC : 오름차순 정렬 / Ascending
+            // DESC : 내림 차순 / Descending
+            Cursor cursor = getContentResolver().query(uri,column,null,null,"name ASC");
+            println("query 결과 :" + cursor.getCount());
+
+            int index = 0;
+            while (cursor.moveToNext()) {
+                // 검색결과에서 name 칼럼의 인덱스 번호
+                int nameColumnIndex = cursor.getColumnIndex(column[0]);
+                String name = cursor.getString(nameColumnIndex);
+
+                int ageColumnIndex = cursor.getColumnIndex(column[1]);
+                int age = cursor.getInt(ageColumnIndex);
+
+                int mobileColumnIndex = cursor.getColumnIndex(column[2]);
+                String mobile = cursor.getString(mobileColumnIndex);
+
+                println("#" + index + "->" + name + ", " + age + "," + mobile);
+                index++;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+         // end while
     }
 
     public void insertPerson() {
@@ -65,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
         String uriString = "com.koreait.provider/person";
         Uri uri = new Uri.Builder().build().parse(uriString);
 
+        /*
         // 다른 앱에 있는 데이터를 사용하기 위해서 조회
         Cursor cursor = getContentResolver().query(uri,null,null,null,null);
         // 칼럼의 이름들을 저장
@@ -76,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
             // 조회된 데이터의 처음부터 끝까지 하나씩 접근해서 출력
             println("#" + i + ":" + colums[i]);
         }
+         */
 
         // 다른 앱에 데이터를 넣기 위한 객체
         ContentValues values = new ContentValues();

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.koreait.exampleprovider">
 
+    <permission android:name="com.koreait.provider.READ_DATABASE" android:protectionLevel="normal"/>
+    <permission android:name="com.koreait.provider.WRITE_DATABASE" android:protectionLevel="normal"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,6 +19,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:authorities="com.koreait.provider"
+            android:name=".PersonProvider"
+            android:exported="true"
+            android:readPermission="com.koreait.provider.READ_DATABASE"
+            android:writePermission="com.koreait.provider.WRITE_DATABASE"/>
+
     </application>
 
 </manifest>

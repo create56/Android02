@@ -7,10 +7,13 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
@@ -23,27 +26,27 @@
                     android:id="@+id/myPageButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/mypage_copy"
                     android:layout_gravity="left"
-                    android:layout_margin="5dp"/>
+                    android:layout_margin="5dp"
+                    android:src="@drawable/mypage_copy" />
 
                 <TextView
                     android:id="@+id/mealRecordText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Meal Record"
                     android:layout_gravity="center"
+                    android:text="Meal Record"
+                    android:textAppearance="@style/Base.TextAppearance.Widget.AppCompat.Toolbar.Title"
                     android:textSize="30dp"
-                    android:textStyle="bold"
-                    android:textAppearance="@style/Base.TextAppearance.Widget.AppCompat.Toolbar.Title"/>
+                    android:textStyle="bold" />
 
                 <ImageButton
                     android:id="@+id/bodySizeButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/body_size"
                     android:layout_gravity="right"
-                    android:layout_margin="5dp"/>
+                    android:layout_margin="5dp"
+                    android:src="@drawable/body_size" />
 
 
             </androidx.appcompat.widget.Toolbar>

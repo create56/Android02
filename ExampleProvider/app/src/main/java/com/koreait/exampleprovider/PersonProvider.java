@@ -106,6 +106,7 @@ public class PersonProvider extends ContentProvider {
     // s -> where절
     //selectionArgs -> JSP/Servlet에서 PreParedStatement를 구성했을 떄처럼 where절을 동작으로 구성했을떄
     //                  where절에 들어가야할 값
+    // delete를 하게되면은 delete가 된 레코드(행)의 개수를 가지고 delete가 정상적으로 이뤄졌는지 판단
     @Override
     public int delete(Uri uri, String selection,String[] selectionArgs) {
         int count = 0;
@@ -125,6 +126,7 @@ public class PersonProvider extends ContentProvider {
     // s -> where절
     //selectionArgs -> JSP/Servlet에서 PreParedStatement를 구성했을 떄처럼 where절을 동작으로 구성했을떄
     //                        // where절에 들어가야할 값
+    // update를 하게 되면은 update가 된 레코드(행)의 개수를 사용해서 update가 정상적으로 이뤄졌는지 여부를 판단
     @Override
     public int update(Uri uri, ContentValues values, String selection,String[] selectionArgs) {
         int count = 0;

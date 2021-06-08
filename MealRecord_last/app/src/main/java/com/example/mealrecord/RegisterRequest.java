@@ -9,13 +9,12 @@ import java.util.Map;
 
 public class RegisterRequest extends StringRequest {
     // 서버 설정 우리는 JSP로 설정
-
     final static private String URL ="";
     private Map<String,String> map;
 
-    public RegisterRequest(String userID, String userName, String userPass, String userPcf, String userEmail
-                           Response.Listener<String>Response.Listener) {
-        super(Method.POST,URL, listener,null);
+    public RegisterRequest(String userID, String userName, String userPass, String userPcf, String userEmail,
+                           Response.Listener<String>listener) {
+        super(Method.POST,URL,listener,null);
 
         map = new HashMap<>();
         map.put("userID",userID);
