@@ -4,13 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class AddVitamin extends AppCompatActivity {
+    TextView title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +19,16 @@ public class AddVitamin extends AppCompatActivity {
 
         Button addVitamin = findViewById(R.id.newVitamin);
         Button saveVitamin = findViewById(R.id.saveVitamin);
+
+        title = findViewById(R.id.mealRecordText);
+        // 상단바에 MealRecord 텍스트 뷰 클릭 시 메인 화면으로 이동
+        title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        }); // end title.setOnClickListener
 
         // 영양제 추가 버튼을 눌렀을 때
         addVitamin.setOnClickListener(new View.OnClickListener() {
@@ -39,9 +50,10 @@ public class AddVitamin extends AppCompatActivity {
             }
         });
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = findViewById(R.id.vitaminRecyclerView);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+
         recyclerView.setLayoutManager(layoutManager);
         VitaminAdapter adapter = new VitaminAdapter();
 
@@ -51,5 +63,6 @@ public class AddVitamin extends AppCompatActivity {
         adapter.addItem(new Vitamin("영양제3", true));
 
         recyclerView.setAdapter(adapter);
+
     }
 }

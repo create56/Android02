@@ -48,16 +48,17 @@
             android:id="@+id/heightLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="20sp"
-                android:textStyle="bold"
                 android:gravity="center"
-                android:text="키" />
+                android:text="키"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/height"
@@ -65,15 +66,15 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number"/>
+                android:inputType="number" />
 
             <TextView
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textStyle="bold"
+                android:text="cm"
                 android:textSize="15sp"
-                android:text="cm" />
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout

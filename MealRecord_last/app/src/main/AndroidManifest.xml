@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mealrecord" >
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -13,9 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MealRecord" >
         <activity android:name=".MyPage" >
-
         </activity>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,12 +24,13 @@
         <activity android:name=".AddDietCategory"/>
         <activity android:name=".AddExercise"/>
         <activity android:name=".AddVitamin"/>
-        <activity android:name=".AddDrink"/>
         <activity android:name=".AddMeal"/>
         <activity android:name=".AddBodySize"/>
         <activity android:name=".AddNewVitamin"/>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".AddDrink"/>
+        <activity android:name=".CalendarActivity"/>
         <activity android:name=".RegisterActivity"/>
+        <activity android:name=".LoginActivity"/>
     </application>
 
 </manifest>

@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AddExercise extends AppCompatActivity {
+    TextView title;
     TextView selectedExercise;
     String[] exercise = {"운동을 선택하세요","유산소", "무산소"};
     @Override
@@ -24,11 +25,22 @@ public class AddExercise extends AppCompatActivity {
 
         selectedExercise = findViewById(R.id.selectedExercise);
 
+        title = findViewById(R.id.mealRecordText);
+        // 상단바에 MealRecord 클릭 시 메인화면으로 이동
+        title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
         Spinner spinner = findViewById(R.id.exerciseCategory);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, exercise);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
+        // 스피너에서 운동 선택했을 때 텍스트 뷰에서 출력
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {

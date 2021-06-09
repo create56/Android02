@@ -1,9 +1,13 @@
 package com.example.mealrecord;
 
+import android.graphics.ColorSpace;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,9 +27,23 @@ public class VitaminAdapter extends RecyclerView.Adapter<VitaminAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(VitaminAdapter.ViewHolder viewHolder, int position) {
-        Vitamin item = items.get(position);
-        viewHolder.setItem(item);
+    public void onBindViewHolder(ViewHolder viewHolder, int position) {
+
+        final Vitamin vitamin = items.get(position);
+
+        viewHolder.checkBox.setOnCheckedChangeListener(null);
+
+        viewHolder.checkBox.setChecked(vitamin.getSupplement());
+
+        viewHolder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                vitamin.setSupplement(isChecked);
+            }
+        }); // end checkBox.setOnCheckedChangeListener
+//
+//        Vitamin item = items.get(position);
+//        viewHolder.setItem(item);
     }
 
     @Override

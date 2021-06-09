@@ -10,7 +10,7 @@ import java.util.Map;
 public class LoginRequest extends StringRequest {
     // 서버 설정 우리는 JSP로 설정
 
-    final static private String URL ="localhost:8081";
+    final static private String URL ="";
     private Map<String,String> map;
 
     public LoginRequest(String userID, String userPass,Response.Listener<String>listener) {

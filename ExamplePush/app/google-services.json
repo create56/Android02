@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "615198437590",
+    "project_id": "examplepush-1778f",
+    "storage_bucket": "examplepush-1778f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615198437590:android:20aa14f988c8b495611977",
+        "android_client_info": {
+          "package_name": "com.koreait.examplepush"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "615198437590-fsu7ms6091h235me1ab7h4lte282cp0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDreFgGTDjw5UI86zLomv0qJCLhOcm1M4A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "615198437590-fsu7ms6091h235me1ab7h4lte282cp0p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

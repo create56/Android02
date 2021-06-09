@@ -9,6 +9,7 @@ import java.util.Map;
 
 public class RegisterRequest extends StringRequest {
     // 서버 설정 우리는 JSP로 설정
+    // 이 클래스는 PHP서버 연동할떄 필요한것
     final static private String URL ="";
     private Map<String,String> map;
 
